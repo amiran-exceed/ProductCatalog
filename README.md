@@ -8,4 +8,4 @@ Run `npm install` and then `npm run serve` for a dev server. It will start Expre
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Navigate to the `client` directory and run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).

@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
-    "serve": "concurrently \"cd app_client && ng serve\" \"npm run start\""
+    "serve": "concurrently \"cd client && ng serve\" \"npm run start\""
   },
   "dependencies": {
     "concurrently": "^5.3.0",
