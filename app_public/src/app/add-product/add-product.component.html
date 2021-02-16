@@ -1,0 +1,83 @@
+<div>
+    <h1 class="h3">Add a New Product</h1>
+</div>
+
+<div class="alert alert-success"
+     *ngIf="notificationService.notification && notificationService.notification.status=='success'">
+    {{notificationService.notification.message}}
+</div>
+
+<form #productForm="ngForm" (ngSubmit)="addNewProduct(productForm)">
+    <div class="mb-3">
+        <label class="form-label" for="productName">Name *</label>
+        <input class="form-control"
+               [class.is-invalid]="productName.invalid && productName.dirty"
+               type="text"
+               name="productName"
+               #productName="ngModel"
+               [(ngModel)]="newProduct.name"
+               placeholder="Enter name here"
+               required id="productName">
+        <div class="invalid-feedback" *ngIf="productName.invalid && productName.dirty">
+            Product name is required
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="productDescription">Description *</label>
+        <input class="form-control"
+               [class.is-invalid]="productDescription.invalid && productDescription.dirty"
+               type="text"
+               name="productDescription"
+               #productDescription="ngModel"
+               [(ngModel)]="newProduct.description"
+               placeholder="Enter description here"
+               required
+               id="productDescription">
+        <div class="invalid-feedback" *ngIf="productDescription.invalid && productDescription.dirty">
+            Product description is required
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="productCategory">Category *</label>
+        <input class="form-control"
+               [class.is-invalid]="productCategory.invalid && productCategory.dirty"
+               type="text"
+               name="productCategory"
+               #productCategory="ngModel"
+               [(ngModel)]="newProduct.category"
+               placeholder="Enter category here"
+               required
+               id="productCategory">
+        <div class="invalid-feedback" *ngIf="productCategory.invalid && productCategory.dirty">
+            Product category is required
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="productPrice">Price *</label>
+        <input class="form-control"
+               [class.is-invalid]="productPrice.invalid && productPrice.dirty"
+               type="number"
+               name="productPrice"
+               #productPrice="ngModel"
+               [(ngModel)]="newProduct.price"
+               required
+               placeholder="Enter price here"
+               id="productPrice">
+        <div class="invalid-feedback" *ngIf="productPrice.invalid && productPrice.dirty">
+            Product price is required
+        </div>
+    </div>
+
+    <p>(*) required fields</p>
+
+    <div class="d-flex justify-content-between">
+        <button class="btn btn-primary" type="submit" [disabled]="productForm.invalid">
+            <i class="fas fa-plus"></i>
+            <span class="ms-2">Add</span>
+        </button>
+        <a routerLink="/">Back to the product list</a>
+    </div>
+</form>
